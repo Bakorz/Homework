@@ -85,19 +85,11 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-img,
-svg {
+:is(img, svg) {
   display: block;
   max-width: 100%;
 }
-h1,
-h2,
-h3,
-p,
-dl,
-dd,
-dt,
-figure {
+:is(h1, h2, h3, p, dl, dd, dt, figure) {
   margin: 0;
 }
 ul {
@@ -350,8 +342,7 @@ a.contact-value:hover {
   background-color: var(--surface-1);
   border-color: var(--surface-2);
 }
-.link-btn:active,
-.submit-button:active {
+:is(.link-btn:active, .submit-button:active) {
   transform: translateY(1px);
 }
 .link-btn--accent {
@@ -421,15 +412,13 @@ a.contact-value:hover {
   color: var(--text);
   overflow-wrap: anywhere;
 }
-.block-body,
-.subblock {
+:is(.block-body, .subblock) {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
   min-width: 0;
 }
-.subblock-title,
-.role-title {
+:is(.subblock-title, .role-title) {
   font-size: var(--text-h3);
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -573,8 +562,7 @@ a.contact-value:hover {
   font-size: 0.8rem;
   color: var(--subtext-1);
 }
-.org-desc,
-.contact-lede {
+:is(.org-desc, .contact-lede) {
   font-size: var(--text-small);
   color: var(--subtext-0);
 }
@@ -593,8 +581,7 @@ a.contact-value:hover {
   border-collapse: collapse;
   table-layout: fixed;
 }
-.skills-table th,
-.skills-table td {
+:is(.skills-table th, .skills-table td) {
   text-align: left;
   vertical-align: top;
   padding: var(--space-5) var(--space-6);
@@ -613,8 +600,7 @@ a.contact-value:hover {
 .skills-table thead th:first-child {
   width: 38%;
 }
-.skills-table tbody tr + tr th,
-.skills-table tbody tr + tr td {
+:is(.skills-table tbody tr + tr th, .skills-table tbody tr + tr td) {
   border-top: 1px solid var(--surface-0);
 }
 .row-domain {
