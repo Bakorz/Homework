@@ -6,381 +6,592 @@
     <title>Muhammad Bagaskoro — Software Engineer</title>
     <meta
       name="description"
-      content="Muhammad Bagaskoro — Software Engineer focused on backend development and process automation, experienced with .NET, FastAPI, PaddleOCR, and Ollama."
+      content="Muhammad Bagaskoro — Software Engineer focused on backend development and process automation: .NET, FastAPI, PaddleOCR, Ollama."
     />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#1e1e2e" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body,
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      dl,
+      dd,
+      dt {
+        margin: 0;
+      }
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      input,
+      textarea,
+      button {
+        font: inherit;
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 2px solid #89b4fa;
+        outline-offset: 2px;
+      }
+      html {
+        scroll-padding-top: 72px;
+      }
+      body {
+        background-color: #1e1e2e;
+        color: #cdd6f4;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      .sub {
+        color: #9399b2;
+        font-size: 0.9rem;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: rgba(24, 24, 37, 0.96);
+        border-bottom: 1px solid #313244;
+      }
+      .nav-in {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 20px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .brand {
+        font-size: 1.1rem;
+        font-weight: 800;
+      }
+      .brand span {
+        color: #b4befe;
+      }
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+        margin-left: auto;
+        font-size: 0.92rem;
+        color: #a6adc8;
+      }
+      .nav-cta {
+        padding: 8px 14px;
+        border: 1px solid rgba(180, 190, 254, 0.35);
+        border-radius: 10px;
+        color: #b4befe;
+        font-weight: 600;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        align-items: center;
+        gap: 40px;
+        padding: 64px 0 40px;
+      }
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      h1 {
+        font-size: 2.6rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .role {
+        color: #cba6f7;
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .lede {
+        color: #a6adc8;
+        max-width: 54ch;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 16px;
+        background-color: #313244;
+        border: 1px solid #45475a;
+        border-radius: 10px;
+        font-size: 0.9rem;
+      }
+      .btn--accent {
+        background-color: transparent;
+        border-color: rgba(116, 199, 236, 0.4);
+        color: #74c7ec;
+      }
+      .photo {
+        width: min(300px, 100%);
+        justify-self: center;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border: 8px solid #313244;
+        border-radius: 24px;
+      }
+      .block {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 56px 0 0;
+      }
+      .eyebrow {
+        color: #cba6f7;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+      h2 {
+        margin-top: 6px;
+        font-size: 1.7rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .card {
+        padding: 24px;
+        background-color: #181825;
+        border: 1px solid #313244;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      h3 {
+        font-size: 1.12rem;
+        font-weight: 700;
+      }
+      .bullets {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        color: #a6adc8;
+        font-size: 0.95rem;
+      }
+      .bullets li::before {
+        content: "▹ ";
+        color: #b4befe;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        padding: 4px 12px;
+        border: 1px solid #45475a;
+        border-radius: 6px;
+        color: #b4befe;
+        font-size: 0.83rem;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        background-color: #181825;
+        border: 1px solid #313244;
+        border-radius: 16px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      th,
+      td {
+        padding: 16px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid #313244;
+      }
+      tbody th {
+        width: 34%;
+      }
+      tbody tr:last-child th,
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .form {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 24px;
+        background-color: #181825;
+        border: 1px solid #313244;
+        border-radius: 16px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .form label {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        color: #a6adc8;
+        font-size: 0.82rem;
+      }
+      .input {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 12px;
+        background-color: #1e1e2e;
+        border: 1px solid #45475a;
+        border-radius: 10px;
+        color: #cdd6f4;
+        font-size: 0.93rem;
+      }
+      button {
+        padding: 12px;
+        background-color: #cba6f7;
+        border: 0;
+        border-radius: 10px;
+        color: #11111b;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      footer {
+        margin-top: 64px;
+        background-color: #11111b;
+        border-top: 1px solid #313244;
+      }
+      .footer-in {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 24px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      @media (max-width: 640px) {
+        .hero,
+        .contact-grid,
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .photo {
+          order: -1;
+          width: min(220px, 70%);
+        }
+        .nav-in {
+          height: auto;
+          flex-wrap: wrap;
+          padding: 10px 16px;
+        }
+        .nav-links {
+          gap: 12px;
+          margin-left: 0;
+          font-size: 0.85rem;
+        }
+        .hero {
+          padding-top: 32px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .block {
+          padding-top: 36px;
+        }
+        .card,
+        .form {
+          padding: 18px;
+        }
+        th,
+        td {
+          padding: 12px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-nav">
-      <div class="nav-inner">
-        <a class="brand" href="#top">Bagaskoro<span class="brand-accent">.dev</span></a>
+    <header class="nav">
+      <div class="nav-in">
+        <a class="brand" href="#top">Bagaskoro<span>.dev</span></a>
         <nav class="nav-links" aria-label="Primary">
           <a href="#top">Home</a>
           <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#education">Education</a>
+          <a class="nav-cta" href="#contact">Get In Touch</a>
         </nav>
-        <a class="nav-cta" href="#contact">Get In Touch</a>
       </div>
     </header>
-    <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-name">
+    <main>
+      <section class="hero" id="top">
         <div class="hero-copy">
-          <h1 class="hero-name" id="hero-name">Muhammad Bagaskoro</h1>
-          <p class="hero-role"><span class="hero-prompt" aria-hidden="true">$</span> Software Engineer</p>
-          <p class="hero-lede">
-            Efficient and results-driven Software Engineer focused on backend development and process
-            automation, experienced with .NET, FastAPI, PaddleOCR, and Ollama.
+          <h1>Muhammad Bagaskoro</h1>
+          <p class="role mono"><span>$</span> Software Engineer</p>
+          <p class="lede">
+            Efficient and results-driven Software Engineer focused on backend
+            development and process automation, experienced with .NET, FastAPI,
+            PaddleOCR, and Ollama.
           </p>
-          <dl class="hero-facts">
-            <div class="fact">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <dt>Location:</dt>
-              <dd>Palembang, Indonesia</dd>
-            </div>
-            <div class="fact">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
-                />
-              </svg>
-              <dt>Phone:</dt>
-              <dd>+628****7890</dd>
-            </div>
-          </dl>
-          <ul class="hero-links">
-            <li>
-              <a class="link-btn" href="https://github.com/Bakorz">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                  />
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a class="link-btn link-btn--accent" href="mailto:bagaskoro.moe@gmail.com">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="m22 7-10 6L2 7" />
-                </svg>
-                bagaskoro.moe@gmail.com
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="photo-frame">
-          <img src="img/PEN_4350.jpg" alt="Muhammad Bagaskoro" width="320" height="320" decoding="async" />
-        </div>
-      </section>
-      <section class="block" id="experience" aria-labelledby="experience-title">
-        <div class="block-head">
-          <p class="eyebrow">CAREER HISTORY</p>
-          <h2 id="experience-title">Work &amp; Leadership Experience</h2>
-        </div>
-        <div class="block-body">
-          <article class="card card--top-rule">
-            <div class="role">
-              <h3 class="role-title">Backend Engineer</h3>
-              <p class="role-org">PDBL Team Project</p>
-            </div>
-            <ul class="bullets">
-              <li>
-                Architecting an automated Digital Invoice &amp; Reimbursement System for large-scale
-                enterprise environments.
-              </li>
-              <li>Developing high-performance backend services using .NET and FastAPI.</li>
-              <li>Integrating PaddleOCR and Ollama for automated invoice data extraction.</li>
-              <li>Managing asynchronous queues and caching using Celery and Redis.</li>
-              <li>Ensuring software scalability, reliability, and clean architecture.</li>
-            </ul>
-            <ul class="chips">
-              <li class="chip chip--tech">.NET 8</li>
-              <li class="chip chip--tech">FastAPI</li>
-              <li class="chip chip--tech">PaddleOCR</li>
-              <li class="chip chip--tech">Ollama LLM</li>
-              <li class="chip chip--tech">Redis</li>
-              <li class="chip chip--tech">Celery</li>
-              <li class="chip chip--tech">PostgreSQL</li>
-            </ul>
-          </article>
-          <div class="subblock">
-            <h3 class="subblock-title">Organizational Experience</h3>
-            <div class="org-grid">
-              <article class="card org-card">
-                <div class="org-head">
-                  <div>
-                    <p class="org-name">Documentation &amp; Media Committee</p>
-                    <p class="org-org">HIMIT PENS</p>
-                  </div>
-                  <p class="year-pill">2025</p>
-                </div>
-                <p class="org-desc">
-                  Managed digital asset documentation and publication; coordinated visual branding across
-                  teams.
-                </p>
-              </article>
-              <article class="card org-card">
-                <div class="org-head">
-                  <div>
-                    <p class="org-name">Documentation &amp; Media Committee</p>
-                    <p class="org-org">LKMM TD PENS</p>
-                  </div>
-                  <p class="year-pill">2025</p>
-                </div>
-                <p class="org-desc">
-                  Led end-to-end documentation and digital archive management for the leadership training
-                  program.
-                </p>
-              </article>
-            </div>
+          <p class="sub">Palembang, Indonesia &middot; +628****7890</p>
+          <div class="links">
+            <a class="btn" href="https://github.com/Bakorz">GitHub</a>
+            <a class="btn btn--accent" href="mailto:bagaskoro.moe@gmail.com"
+              >bagaskoro.moe@gmail.com</a
+            >
           </div>
         </div>
+        <img
+          class="photo"
+          src="img/PEN_4350.jpg"
+          alt="Muhammad Bagaskoro"
+          width="320"
+          height="320"
+        />
       </section>
-      <section class="block" id="skills" aria-labelledby="skills-title">
-        <div class="block-head">
-          <p class="eyebrow">COMPETENCIES</p>
-          <h2 id="skills-title">Technical Skills &amp; Proficiencies</h2>
+      <section class="block" id="experience">
+        <div>
+          <p class="eyebrow mono">CAREER HISTORY</p>
+          <h2>Work &amp; Leadership Experience</h2>
+        </div>
+        <article class="card">
+          <div>
+            <h3>Backend Engineer</h3>
+            <p class="sub">PDBL Team Project</p>
+          </div>
+          <ul class="bullets">
+            <li>
+              Architecting an automated Digital Invoice &amp; Reimbursement
+              System for large-scale enterprise environments.
+            </li>
+            <li>
+              Developing high-performance backend services using .NET and
+              FastAPI.
+            </li>
+            <li>
+              Integrating PaddleOCR and Ollama for automated invoice data
+              extraction.
+            </li>
+            <li>
+              Managing asynchronous queues and caching using Celery and Redis.
+            </li>
+            <li>
+              Ensuring software scalability, reliability, and clean
+              architecture.
+            </li>
+          </ul>
+          <ul class="chips">
+            <li class="chip">.NET 8</li>
+            <li class="chip">FastAPI</li>
+            <li class="chip">PaddleOCR</li>
+            <li class="chip">Ollama LLM</li>
+            <li class="chip">Redis</li>
+            <li class="chip">Celery</li>
+            <li class="chip">PostgreSQL</li>
+          </ul>
+        </article>
+        <h3>Organizational Experience</h3>
+        <div>
+          <article class="card">
+            <h3>
+              Documentation &amp; Media Committee
+              <span class="mono">2025</span>
+            </h3>
+            <p class="sub">
+              HIMIT PENS — managed digital asset documentation and publication,
+              coordinated visual branding across teams.
+            </p>
+          </article>
+          <article class="card">
+            <h3>
+              Documentation &amp; Media Committee
+              <span class="mono">2025</span>
+            </h3>
+            <p class="sub">
+              LKMM TD PENS — led end-to-end documentation and digital archive
+              management for the leadership training program.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="block" id="skills">
+        <div>
+          <p class="eyebrow mono">COMPETENCIES</p>
+          <h2>Technical Skills &amp; Proficiencies</h2>
         </div>
         <div class="table-wrap">
-          <table class="skills-table">
-            <caption class="visually-hidden">
-              Skill domains mapped to the technologies and methodologies used
-            </caption>
+          <table
+            aria-label="Skill domains mapped to the technologies and methodologies used"
+          >
             <thead>
               <tr>
-                <th scope="col">SKILL DOMAIN</th>
-                <th scope="col">TECHNOLOGIES &amp; METHODOLOGIES</th>
+                <th>SKILL DOMAIN</th>
+                <th>TECHNOLOGIES &amp; METHODOLOGIES</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="row-domain">
-                  <span class="dot dot--mauve" aria-hidden="true"></span>
-                  Back-End Development
-                </th>
+                <th>Back-End Development</th>
+                <td>.NET (C#), Python (FastAPI), RESTful API Design</td>
+              </tr>
+              <tr>
+                <th>Automation &amp; AI</th>
                 <td>
-                  <ul class="chip-row">
-                    <li class="chip chip--accent">.NET (C#)</li>
-                    <li class="chip chip--accent">Python (FastAPI)</li>
-                    <li class="chip chip--tech">RESTful API Design</li>
-                  </ul>
+                  Computer Vision (PaddleOCR), LLM Integration (Ollama), Invoice
+                  Processing Automation
                 </td>
               </tr>
               <tr>
-                <th scope="row" class="row-domain">
-                  <span class="dot dot--blue" aria-hidden="true"></span>
-                  Automation &amp; AI
-                </th>
+                <th>Database &amp; Distributed Systems</th>
                 <td>
-                  <ul class="chip-row">
-                    <li class="chip chip--accent">Computer Vision (PaddleOCR)</li>
-                    <li class="chip chip--accent">LLM Integration (Ollama)</li>
-                    <li class="chip chip--tech">Invoice Processing Automation</li>
-                  </ul>
+                  Redis (Caching), Celery (Task Queue), PostgreSQL / Supabase
                 </td>
               </tr>
               <tr>
-                <th scope="row" class="row-domain">
-                  <span class="dot dot--green" aria-hidden="true"></span>
-                  Database &amp; Distributed Systems
-                </th>
+                <th>Development Tools</th>
                 <td>
-                  <ul class="chip-row">
-                    <li class="chip chip--tech">Redis (Caching)</li>
-                    <li class="chip chip--tech">Celery (Task Queue)</li>
-                    <li class="chip chip--tech">PostgreSQL / Supabase</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="row-domain">
-                  <span class="dot dot--yellow" aria-hidden="true"></span>
-                  Development Tools
-                </th>
-                <td>
-                  <ul class="chip-row">
-                    <li class="chip chip--tech">Git</li>
-                    <li class="chip chip--tech">AI-Assisted Development</li>
-                    <li class="chip chip--tech">Docker</li>
-                    <li class="chip chip--tech">Linux System Administration</li>
-                  </ul>
+                  Git, AI-Assisted Development, Docker, Linux System
+                  Administration
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
-      <section class="block" id="education" aria-labelledby="education-title">
-        <div class="block-head">
-          <p class="eyebrow">ACADEMIC BACKGROUND</p>
-          <h2 id="education-title">Education</h2>
+      <section class="block" id="education">
+        <div>
+          <p class="eyebrow mono">ACADEMIC BACKGROUND</p>
+          <h2>Education</h2>
         </div>
-        <article class="card card--left-rule">
-          <h3 class="edu-school">Politeknik Elektronika Negeri Surabaya (PENS)</h3>
-          <p class="edu-degree">Bachelor of Applied Science in Engineering</p>
-          <p class="edu-note">
-            Specializing in software engineering methodologies, embedded backend architectures, and
-            intelligent systems.
+        <article class="card">
+          <div>
+            <h3>Politeknik Elektronika Negeri Surabaya (PENS)</h3>
+            <p class="sub">Bachelor of Applied Science in Engineering</p>
+          </div>
+          <p class="sub">
+            Specializing in software engineering methodologies, embedded backend
+            architectures, and intelligent systems.
           </p>
         </article>
       </section>
-      <section class="block" id="contact" aria-labelledby="contact-title">
-        <div class="block-head">
-          <p class="eyebrow">GET IN TOUCH</p>
-          <h2 id="contact-title">Start a Collaboration</h2>
+      <section class="block" id="contact">
+        <div>
+          <p class="eyebrow mono">GET IN TOUCH</p>
+          <h2>Start a Collaboration</h2>
         </div>
         <div class="contact-grid">
-          <div class="contact-direct">
-            <p class="contact-lede">
-              Interested in collaborating on high-throughput backend systems, AI automation, or custom API
-              development? Reach out via the form or through direct channels below.
+          <div>
+            <p class="lede">
+              Interested in collaborating on high-throughput backend systems, AI
+              automation, or custom API development? Reach out via the form or
+              through direct channels below.
             </p>
             <ul class="contact-list">
-              <li class="contact-row">
-                <span class="contact-badge" aria-hidden="true">@</span>
-                <span class="contact-text">
-                  <span class="contact-label">EMAIL ADDRESS</span>
-                  <a class="contact-value" href="mailto:bagaskoro.moe@gmail.com">bagaskoro.moe@gmail.com</a>
-                </span>
+              <li>
+                <a class="mono" href="mailto:bagaskoro.moe@gmail.com"
+                  >bagaskoro.moe@gmail.com</a
+                >
               </li>
-              <li class="contact-row">
-                <span class="contact-badge" aria-hidden="true">in</span>
-                <span class="contact-text">
-                  <span class="contact-label">LINKEDIN PROFILE</span>
-                  <a class="contact-value" href="https://linkedin.com/in/bagaskoromoe" rel="me noreferrer"
-                    >linkedin.com/in/bagaskoromoe</a
-                  >
-                </span>
+              <li>
+                <a class="mono" href="https://linkedin.com/in/bagaskoromoe"
+                  >linkedin.com/in/bagaskoromoe</a
+                >
               </li>
-              <li class="contact-row">
-                <span class="contact-badge" aria-hidden="true">gh</span>
-                <span class="contact-text">
-                  <span class="contact-label">GITHUB PROFILE</span>
-                  <a class="contact-value" href="https://github.com/Bakorz" rel="me noreferrer"
-                    >github.com/Bakorz</a
-                  >
-                </span>
+              <li>
+                <a class="mono" href="https://github.com/Bakorz"
+                  >github.com/Bakorz</a
+                >
               </li>
-              <li class="contact-row">
-                <span class="contact-badge" aria-hidden="true">#</span>
-                <span class="contact-text">
-                  <span class="contact-label">DIRECT PHONE / WHATSAPP</span>
-                  <span class="contact-value">+628****3929</span>
-                </span>
-              </li>
+              <li><span class="mono">+628****3929</span></li>
             </ul>
           </div>
           <form
-            class="contact-form"
+            class="form"
             action="mailto:bagaskoro.moe@gmail.com"
             method="post"
             enctype="text/plain"
           >
             <div class="form-row">
-              <div class="field">
-                <label class="field-label" for="full-name">
-                  Full Name <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
+              <label
+                >Full Name *<input
                   class="input"
-                  id="full-name"
-                  name="Full Name"
-                  type="text"
+                  name="name"
                   placeholder="e.g. John Doe"
-                  autocomplete="name"
                   required
-                />
-              </div>
-              <div class="field">
-                <label class="field-label" for="email">
-                  Email Address <span class="req" aria-hidden="true">*</span>
-                </label>
-                <input
+              /></label>
+              <label
+                >Email Address *<input
                   class="input"
-                  id="email"
-                  name="Email"
                   type="email"
-                  placeholder="e.g. name@company.com"
-                  autocomplete="email"
+                  name="email"
+                  placeholder="name@company.com"
                   required
-                />
-              </div>
+              /></label>
             </div>
-            <div class="form-row">
-              <div class="field">
-                <label class="field-label" for="phone">Phone / WhatsApp Number</label>
-                <input
-                  class="input"
-                  id="phone"
-                  name="Phone"
-                  type="tel"
-                  placeholder="+62 812-3456-7890"
-                  autocomplete="tel"
-                />
-              </div>
-              <div class="field">
-                <label class="field-label" for="date">Preferred Discussion Date</label>
-                <input class="input" id="date" name="Preferred Date" type="date" />
-              </div>
-            </div>
-            <div class="field">
-              <label class="field-label" for="attachment"> Project Brief / Attachment </label>
-              <input
-                class="input input--file"
-                id="attachment"
-                name="Attachment"
-                type="file"
-                accept=".pdf,.docx,.txt"
-              />
-              <p class="field-hint">Supported formats: PDF, DOCX, TXT (Max: 10MB)</p>
-            </div>
-            <div class="field">
-              <label class="field-label" for="message">
-                Message / Project Details <span class="req" aria-hidden="true">*</span>
-              </label>
-              <textarea
-                class="input textarea"
-                id="message"
-                name="Message"
-                rows="5"
+            <label
+              >Phone / WhatsApp<input
+                class="input"
+                type="tel"
+                name="phone"
+                placeholder="+62 812-3456-7890"
+            /></label>
+            <label
+              >Message / Project Details *<textarea
+                class="input"
+                name="message"
+                rows="4"
                 placeholder="Tell me about your project goals, timelines, or questions..."
                 required
               ></textarea>
-            </div>
-            <button class="submit-button" type="submit">
-              Send Message
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m22 2-7 20-4-9-9-4 20-7z" />
-              </svg>
-            </button>
+            </label>
+            <button type="submit">Send Message</button>
           </form>
         </div>
       </section>
     </main>
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <nav class="footer-links" aria-label="Footer">
-          <a href="#top">Home</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <p class="footer-note">Designed with Love</p>
+    <footer>
+      <div class="footer-in">
+        <p class="sub">Designed with Love</p>
       </div>
     </footer>
   </body>
