@@ -51,6 +51,7 @@
         scroll-padding-top: 72px;
       }
       body {
+        word-wrap: break-word;
         background-color: #1e1e2e;
         color: #cdd6f4;
         font-family:
@@ -62,6 +63,8 @@
         line-height: 1.6;
       }
       main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
         max-width: 1040px;
         margin: 0 auto;
         padding: 0 20px;
@@ -144,6 +147,10 @@
         gap: 12px;
       }
       .btn {
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background-color 0.2s ease;
         padding: 10px 16px;
         background-color: #313244;
         border: 1px solid #45475a;
@@ -156,8 +163,7 @@
         color: #74c7ec;
       }
       .photo {
-        width: min(300px, 100%);
-        justify-self: center;
+        width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border: 8px solid #313244;
@@ -182,6 +188,7 @@
         letter-spacing: -0.02em;
       }
       .card {
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
         padding: 24px;
         background-color: #181825;
         border: 1px solid #313244;
@@ -254,6 +261,7 @@
         margin-top: 18px;
       }
       .form {
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
         min-width: 0;
         display: flex;
         flex-direction: column;
@@ -287,6 +295,9 @@
         font-size: 0.93rem;
       }
       button {
+        transition:
+          transform 0.2s ease,
+          background-color 0.2s ease;
         padding: 12px;
         background-color: #cba6f7;
         border: 0;
@@ -310,15 +321,140 @@
         justify-content: space-between;
         gap: 12px;
       }
+      /* --- Visual effects, positioning, interaction (assignment items 1-8) --- */
+      .eyebrow::before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 2px;
+        margin-right: 8px;
+        background-color: #cba6f7;
+        vertical-align: middle;
+      }
+      .card > div > h3 + .sub {
+        margin-top: 4px;
+      }
+      .card {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+      }
+      .btn:hover,
+      button:hover {
+        border-color: #b4befe;
+        transform: translateY(-2px);
+      }
+      .nav-links a {
+        transition: color 0.2s ease;
+      }
+      .nav-links a:hover {
+        color: #cdd6f4;
+      }
+      .input:focus {
+        border-color: #89b4fa;
+      }
+      .photo-wrap {
+        position: relative;
+        justify-self: center;
+        width: min(300px, 100%);
+      }
+      .photo-wrap img {
+        animation-name: fade-up;
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(0.2, 0.7, 0.3, 1);
+        animation-delay: 0.1s;
+        animation-fill-mode: both;
+      }
+      .badge {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        z-index: 2;
+        padding: 6px 12px;
+        background-color: #cba6f7;
+        border-radius: 999px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        color: #11111b;
+        font-size: 0.75rem;
+        font-weight: 700;
+        transform: rotate(-4deg);
+        transition: transform 0.2s ease;
+      }
+      .badge:hover {
+        transform: rotate(3deg) scale(1.06);
+      }
+      .to-top {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 20;
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        background-color: #313244;
+        border: 1px solid #45475a;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+        color: #cdd6f4;
+        font-size: 1.05rem;
+        transition:
+          transform 0.2s ease,
+          background-color 0.2s ease;
+      }
+      .to-top:hover {
+        background-color: #45475a;
+        transform: translate(0, -3px) scale(1.06);
+      }
+      .float-tag {
+        float: right;
+        margin: 0 0 8px 12px;
+        padding: 4px 10px;
+        background-color: #313244;
+        border-radius: 6px;
+        color: #f9e2af;
+        font-size: 0.78rem;
+      }
+      .clearfix::after {
+        display: block;
+        clear: both;
+        content: "";
+      }
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .photo-wrap img {
+          animation: none;
+        }
+        .badge:hover,
+        .card:hover,
+        .to-top:hover,
+        .btn:hover,
+        button:hover {
+          transform: none;
+        }
+      }
       @media (max-width: 640px) {
         .hero,
         .contact-grid,
         .form-row {
           grid-template-columns: 1fr;
         }
-        .photo {
+        .photo-wrap {
           order: -1;
-          width: min(220px, 70%);
+          width: min(200px, 70%);
         }
         .nav-in {
           height: auto;
@@ -381,13 +517,16 @@
             >
           </div>
         </div>
-        <img
-          class="photo"
-          src="img/PEN_4350.jpg"
-          alt="Muhammad Bagaskoro"
-          width="320"
-          height="320"
-        />
+        <div class="photo-wrap">
+          <img
+            class="photo"
+            src="img/PEN_4350.jpg"
+            alt="Muhammad Bagaskoro"
+            width="320"
+            height="320"
+          />
+          <span class="badge">Open to work</span>
+        </div>
       </section>
       <section class="block" id="experience">
         <div>
@@ -433,24 +572,24 @@
         <h3>Organizational Experience</h3>
         <div>
           <article class="card">
-            <h3>
-              Documentation &amp; Media Committee
-              <span class="mono">2025</span>
-            </h3>
-            <p class="sub">
-              HIMIT PENS — managed digital asset documentation and publication,
-              coordinated visual branding across teams.
-            </p>
+            <h3>Documentation &amp; Media Committee</h3>
+            <div class="clearfix">
+              <span class="float-tag mono">2025</span>
+              <p class="sub">
+                HIMIT PENS — managed digital asset documentation and
+                publication, coordinated visual branding across teams.
+              </p>
+            </div>
           </article>
           <article class="card">
-            <h3>
-              Documentation &amp; Media Committee
-              <span class="mono">2025</span>
-            </h3>
-            <p class="sub">
-              LKMM TD PENS — led end-to-end documentation and digital archive
-              management for the leadership training program.
-            </p>
+            <h3>Documentation &amp; Media Committee</h3>
+            <div class="clearfix">
+              <span class="float-tag mono">2025</span>
+              <p class="sub">
+                LKMM TD PENS — led end-to-end documentation and digital archive
+                management for the leadership training program.
+              </p>
+            </div>
           </article>
         </div>
       </section>
@@ -594,5 +733,6 @@
         <p class="sub">Designed with Love</p>
       </div>
     </footer>
+    <a class="to-top" href="#top" aria-label="Back to top">↑</a>
   </body>
 </html>
