@@ -276,7 +276,7 @@ python3 -m http.server 8000 --bind 127.0.0.1       # then: no horizontal scrollb
 
 | # | Requirement | Where it lives (evidence) |
 | --- | --- | --- |
-| 1 | Box model (margin, padding, border), `border-radius`, `box-shadow`, `word-wrap` | 5 margin / 22 padding / 25 border / 12 `border-radius` / 6 `box-shadow` declarations; `body { word-wrap: break-word }` inherits everywhere |
+| 1 | Box model (margin, padding, border), `border-radius`, `box-shadow`, `word-wrap` | 5 margin / 22 padding / 32 border / 12 `border-radius` / 6 `box-shadow` declarations; `body { word-wrap: break-word }` inherits everywhere |
 | 2 | At least two layout methods: Grid for content, Flexbox for components, plus a float + clearfix section | `main { display: grid; grid-template-columns: minmax(0, 1fr) }` + hero/contact/form grids; 12 Flexbox rules; `.float-tag { float: right }` with `.clearfix::after { clear: both }` in the organisational cards |
 | 3 | `position: sticky` nav, `position: fixed` back-to-top, `position: absolute` corner badge, `z-index` stacking | `.nav` (sticky, `z-index: 10`), `.to-top` (fixed, `z-index: 20`), `.badge` (absolute, `z-index: 2`) inside `.photo-wrap` (relative) |
 | 4 | Child `>`, adjacent `+`, and descendant combinators | `.card > div > h3 + .sub { margin-top: 4px }` (computed 4 px) + 10 descendant selectors (e.g. `.nav-links a`, `.bullets li::before`) |
